@@ -47,7 +47,7 @@ body {
   padding: 4rem 2rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(min-content, 720px));
-  grid-column-gap: 4rem;
+  grid-column-gap: 6rem;
   align-items: center; }
   .main__pictures {
     padding: 4rem;
@@ -77,7 +77,7 @@ body {
     object-fit: cover;
     display: block; }
   .main__text {
-    width: 90%;
+    width: 85%;
     padding: 4rem;
     display: grid;
     grid-gap: 3rem; }
@@ -110,6 +110,66 @@ body {
       font-size: 1.5rem;
       margin-left: 1.5rem;
       filter: opacity(0.8); }
+    .main__text--cart-button {
+      background-color: #ff7d1a;
+      padding: 1.5rem 2rem;
+      border: none;
+      border-radius: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2rem 4rem rgba(255, 125, 26, 0.3);
+      flex: 1;
+      cursor: pointer; }
+      .main__text--cart-button--img {
+        fill: white;
+        height: 1.5rem;
+        margin-right: 1rem; }
+      .main__text--cart-button--text {
+        font-size: 1.4rem;
+        font-weight: 700; }
+
+.counter {
+  padding: 1.6rem 1.2rem;
+  border-radius: 1rem;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f7f8fd;
+  margin-right: 1.5rem; }
+  .counter__label {
+    font-size: 1.5rem; }
+  .counter__btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer; }
+
+.filter-white {
+  filter: invert(100%) sepia(3%) saturate(632%) hue-rotate(215deg) brightness(112%) contrast(102%); }
+
+.filter-gray {
+  filter: invert(47%) sepia(8%) saturate(629%) hue-rotate(180deg) brightness(89%) contrast(87%); }
+
+.counter-cart-wrapper {
+  transform: translateY(-2rem);
+  display: flex;
+  justify-content: space-between; }
+
+.footer {
+  margin-top: 5rem;
+  color: #68707d;
+  font-size: 1.5rem; }
+  .footer a {
+    text-decoration: none; }
+  .footer a:link,
+  .footer a:visited {
+    color: #ff7d1a; }
+  .footer a:hover {
+    border-bottom: 1px solid #ff7d1a; }
 
 .container {
   width: 14.4rem;

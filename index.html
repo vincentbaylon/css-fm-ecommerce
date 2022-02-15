@@ -43,7 +43,11 @@
          </ul>
 
          <button class="nav__btn">
-            <img src="images/icon-cart.svg" alt="Cart" class="nav__btn-cart" />
+            <img
+               src="images/icon-cart.svg"
+               alt="Cart"
+               class="nav__btn-cart filter-gray"
+            />
          </button>
 
          <button class="nav__btn">
@@ -108,27 +112,29 @@
                $125.00 <span class="main__text--price-disc">50%</span>
             </h3>
             <h4 class="main__text--price-slash">$250.00</h4>
-            <div class="counter">
-               <button class="counter__btn-minus">
-                  <img
-                     src="images/icon-minus.svg"
-                     alt="Minus icon"
-                     class="counter__btn-minus--icon"
-                  />
-               </button>
-               <h4 class="counter__label">0</h4>
-               <button class="counter__btn-add">
-                  <img
-                     src="images/icon-plus.svg"
-                     alt="Plus icon"
-                     class="counter__btn-add--icon"
-                  />
-               </button>
+            <div class="counter-cart-wrapper">
+               <div class="counter">
+                  <button class="counter__btn counter__btn-minus">
+                     <img
+                        src="images/icon-minus.svg"
+                        alt="Minus icon"
+                        class="counter__btn-minus--icon"
+                     />
+                  </button>
+                  <h4 class="counter__label">0</h4>
+                  <button class="counter__btn counter__btn-add">
+                     <img
+                        src="images/icon-plus.svg"
+                        alt="Plus icon"
+                        class="counter__btn-add--icon"
+                     />
+                  </button>
+               </div>
                <button class="main__text--cart-button">
                   <img
                      src="images/icon-cart.svg"
                      alt="Cart icon"
-                     class="main__text--cart-button--img"
+                     class="main__text--cart-button--img filter-white"
                   />
                   <span class="main__text--cart-button--text">Add to cart</span>
                </button>

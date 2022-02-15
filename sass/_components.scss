@@ -49,7 +49,7 @@
    padding: 4rem 2rem;
    display: grid;
    grid-template-columns: repeat(2, minmax(min-content, 720px));
-   grid-column-gap: 4rem;
+   grid-column-gap: 6rem;
    align-items: center;
 
    &__pictures {
@@ -94,7 +94,7 @@
    }
 
    &__text {
-      width: 90%;
+      width: 85%;
       padding: 4rem;
       display: grid;
       grid-gap: 3rem;
@@ -141,26 +141,99 @@
       }
 
       &--cart-button {
+         background-color: $color-primary;
+         padding: 1.5rem 2rem;
+         border: none;
+         border-radius: 1rem;
+         // width: 50%;
+         color: $color-white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0 2rem 4rem rgba($color-primary, 0.3);
+         flex: 1;
+         cursor: pointer;
+
          &--img {
+            fill: $color-white;
+            height: 1.5rem;
+            margin-right: 1rem;
          }
 
          &--text {
+            font-size: 1.4rem;
+            font-weight: 700;
          }
       }
    }
 }
 
 .counter {
+   padding: 1.6rem 1.2rem;
+   border-radius: 1rem;
+   width: 35%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: $color-gray-blue-light;
+   margin-right: 1.5rem;
+
    &__label {
+      font-size: 1.5rem;
    }
 
-   &__btn-minus {
-      &--icon {
+   &__btn {
+      display: flex;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &-minus {
+         &--icon {
+         }
+      }
+
+      &-add {
+         &--icon {
+         }
       }
    }
+}
 
-   &__btn-add {
-      &--icon {
-      }
+.filter-white {
+   filter: invert(100%) sepia(3%) saturate(632%) hue-rotate(215deg)
+      brightness(112%) contrast(102%);
+}
+
+.filter-gray {
+   filter: invert(47%) sepia(8%) saturate(629%) hue-rotate(180deg)
+      brightness(89%) contrast(87%);
+}
+
+.counter-cart-wrapper {
+   transform: translateY(-2rem);
+   display: flex;
+   justify-content: space-between;
+}
+
+//////////////////////////////////
+// FOOTER
+.footer {
+   margin-top: 5rem;
+   color: $color-dark-gray-blue;
+   font-size: 1.5rem;
+
+   a {
+      text-decoration: none;
+   }
+
+   a:link,
+   a:visited {
+      color: $color-primary;
+   }
+
+   a:hover {
+      border-bottom: 1px solid rgba($color-primary, 1);
    }
 }
