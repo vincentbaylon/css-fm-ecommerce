@@ -5,7 +5,7 @@
    padding: 3rem 0;
    display: grid;
    grid-template-columns: min-content 1fr min-content min-content;
-   grid-column-gap: 3rem;
+   grid-column-gap: 4rem;
    align-items: center;
    border-bottom: 1px solid rgba($color-gray-blue, 0.2);
 
@@ -21,7 +21,7 @@
    &__visited {
       color: $color-gray-blue;
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
    }
 
    &__btn {
@@ -31,7 +31,7 @@
       cursor: pointer;
 
       &-cart {
-         height: 1.6rem;
+         height: 1.8rem;
          display: block;
       }
 
@@ -94,12 +94,13 @@
    }
 
    &__text {
+      width: 90%;
       padding: 4rem;
       display: grid;
       grid-gap: 3rem;
 
       &--heading-2 {
-         font-size: 5rem;
+         font-size: 4.5rem;
       }
 
       &--heading-3 {
@@ -110,9 +111,56 @@
       }
 
       &--description {
-         color: $color-gray-blue;
+         color: $color-dark-gray-blue;
          font-size: 1.6rem;
          line-height: 1.5;
+      }
+
+      &--price {
+         font-size: 2.6rem;
+         display: flex;
+         align-items: center;
+      }
+
+      &--price-slash {
+         color: $color-gray-blue;
+         font-size: 1.6rem;
+         text-decoration: line-through;
+         transform: translateY(-20px);
+         font-weight: 400;
+      }
+
+      &--price-disc {
+         color: $color-primary;
+         background-color: $color-primary-light;
+         padding: 0.2rem 0.7rem;
+         border-radius: 0.5rem;
+         font-size: 1.5rem;
+         margin-left: 1.5rem;
+         filter: opacity(0.8);
+      }
+
+      &--cart-button {
+         &--img {
+         }
+
+         &--text {
+         }
+      }
+   }
+}
+
+.counter {
+   &__label {
+   }
+
+   &__btn-minus {
+      &--icon {
+      }
+   }
+
+   &__btn-add {
+      &--icon {
       }
    }
 }
