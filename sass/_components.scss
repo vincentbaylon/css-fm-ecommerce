@@ -43,6 +43,7 @@
    }
 
    &__btn {
+      position: relative;
       border: none;
       border-radius: 0;
       background-color: transparent;
@@ -51,6 +52,17 @@
       &-cart {
          height: 1.9rem;
          display: block;
+      }
+
+      &-notif {
+         position: absolute;
+         top: -0.5rem;
+         right: -0.6rem;
+         color: $color-white;
+         font-size: 0.8rem;
+         background-color: $color-primary;
+         padding: 0.2rem 0.75rem;
+         border-radius: 45%;
       }
 
       &-avatar {
@@ -269,6 +281,10 @@
    justify-content: space-between;
 }
 
+.cart-wrapper {
+   position: relative;
+}
+
 .active {
    border-color: $color-primary;
 }
@@ -295,5 +311,78 @@
 
    a:hover {
       border-bottom: 1px solid rgba($color-primary, 1);
+   }
+}
+
+//////////////////////////////////
+// CART
+.cart {
+   padding: 0.6rem 2rem;
+   height: 17rem;
+   width: 28rem;
+   position: absolute;
+   top: 5rem;
+   right: -13em;
+   background-color: $color-white;
+   border-radius: 0.5rem;
+   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+   z-index: 10;
+   overflow: hidden;
+
+   &__heading {
+      width: 120%;
+      font-size: 1.2rem;
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid $color-gray-blue-light;
+      transform: translateX(-2rem);
+   }
+
+   &__img {
+      height: 3.5rem;
+      width: 3.5rem;
+      border-radius: 0.5rem;
+   }
+
+   &__details {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__text {
+      font-size: 1.3rem;
+      color: $color-dark-gray-blue;
+   }
+
+   &__desc {
+   }
+
+   &__price {
+   }
+
+   &__total {
+      font-weight: 700;
+      color: $color-dark-blue;
+      margin-left: 0.5rem;
+   }
+
+   &__trash {
+      border: none;
+
+      &-icon {
+         height: 1.15rem;
+      }
+   }
+
+   &__checkout {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      padding: 1.3rem 0;
+      width: 100%;
+      border: none;
+      border-radius: 0.5rem;
+      color: $color-white;
+      background-color: $color-primary;
    }
 }

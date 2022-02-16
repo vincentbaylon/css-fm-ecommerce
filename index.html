@@ -49,13 +49,43 @@
             </li>
          </ul>
 
-         <button class="nav__btn">
-            <img
-               src="images/icon-cart.svg"
-               alt="Cart"
-               class="nav__btn-cart filter-gray"
-            />
-         </button>
+         <div class="cart-wrapper">
+            <button class="nav__btn">
+               <img
+                  src="images/icon-cart.svg"
+                  alt="Cart"
+                  class="nav__btn-cart filter-gray"
+               />
+               <span class="nav__btn-notif">0</span>
+            </button>
+            <div class="cart">
+               <div class="cart__content">
+                  <h3 class="cart__heading">Cart</h3>
+                  <div class="cart__details">
+                     <img
+                        src="images/image-product-1-thumbnail.jpg"
+                        alt="Cart item"
+                        class="cart__img"
+                     />
+                     <div class="cart__text">
+                        <p class="cart__desc">Fall Limited Edition Sneakers</p>
+                        <p class="cart__price">
+                           $125 x 3<span class="cart__total">$375.00</span>
+                        </p>
+                     </div>
+                     <button class="cart__trash">
+                        <img
+                           src="images/icon-delete.svg"
+                           alt="Delete icon"
+                           class="cart__trash-icon"
+                        />
+                     </button>
+                  </div>
+
+                  <button class="cart__checkout">Checkout</button>
+               </div>
+            </div>
+         </div>
 
          <button class="nav__btn">
             <img
