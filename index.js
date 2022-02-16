@@ -27,14 +27,17 @@ document.querySelector(".nav__btn").addEventListener("click", () => {
    const cartDesc = document.querySelector(".cart__desc");
    const cartPrice = document.querySelector(".cart__price");
    const cartTotal = document.querySelector(".cart__total");
+   const backdrop = document.querySelector(".close-backdrop");
 
    if (cart.style.visibility === "visible") {
       cart.style.visibility = "hidden";
       cart.style.opacity = "0";
       cartDetails.style.visibility = "hidden";
+      backdrop.style.visibility = "hidden";
    } else {
       cart.style.visibility = "visible";
       cart.style.opacity = "1";
+      backdrop.style.visibility = "visible";
 
       if (cartArr.length > 0) {
          cartEmpty.style.visibility = "hidden";
@@ -52,18 +55,34 @@ document.querySelector(".nav__btn").addEventListener("click", () => {
 document
    .querySelector(".main__text--cart-button")
    .addEventListener("click", () => {
-      if (count > 0) {
+      if (cartArr.length > 0) {
          const notif = document.querySelector(".nav__btn-notif");
+         let newCount = parseInt(notif.textContent) + count;
          notif.style.visibility = "visible";
-         notif.textContent = count;
+         notif.textContent = newCount;
          notif.style.opacity = "1";
 
          let order = {
             name: product.name,
             price: product.price,
-            quantity: count,
+            quantity: newCount,
          };
+         cartArr.pop();
          cartArr.push(order);
+      } else {
+         if (count > 0) {
+            const notif = document.querySelector(".nav__btn-notif");
+            notif.style.visibility = "visible";
+            notif.textContent = count;
+            notif.style.opacity = "1";
+
+            let order = {
+               name: product.name,
+               price: product.price,
+               quantity: count,
+            };
+            cartArr.push(order);
+         }
       }
 
       count = 0;
@@ -84,6 +103,17 @@ document.querySelector(".cart__trash").addEventListener("click", () => {
    cartEmpty.style.visibility = "visible";
 
    cartArr.pop();
+});
+
+document.querySelector(".close-backdrop").addEventListener("click", () => {
+   const cart = document.querySelector(".cart");
+   const cartDetails = document.querySelector(".cart__active");
+   const backdrop = document.querySelector(".close-backdrop");
+
+   cart.style.visibility = "hidden";
+   cart.style.opacity = "0";
+   cartDetails.style.visibility = "hidden";
+   backdrop.style.visibility = "hidden";
 });
 
 // FUNCTIONS
