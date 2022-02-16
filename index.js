@@ -1,5 +1,5 @@
 let count = 0;
-let cart = [];
+let cartArr = [];
 
 // EVENT LISTENERS
 document.querySelector(".counter__btn-add").addEventListener("click", () => {
@@ -15,6 +15,41 @@ document.querySelector(".counter__btn-minus").addEventListener("click", () => {
       updateLabel();
    }
 });
+
+document.querySelector(".nav__btn").addEventListener("click", () => {
+   const cart = document.querySelector(".cart");
+   const cartDetails = document.querySelector(".cart__active");
+   const cartEmpty = document.querySelector(".cart__empty");
+
+   if (cart.style.visibility === "visible") {
+      cart.style.visibility = "hidden";
+      cart.style.opacity = "0";
+      cartDetails.style.visibility = "hidden";
+   } else {
+      cartEmpty.style.visibility = "hidden";
+      cart.style.visibility = "visible";
+      cart.style.opacity = "1";
+
+      if (cartArr.length > 0) {
+         cartDetails.style.visibility = "visible";
+      }
+   }
+});
+
+document
+   .querySelector(".main__text--cart-button")
+   .addEventListener("click", () => {
+      if (count > 0) {
+         const notif = document.querySelector(".nav__btn-notif");
+         notif.style.visibility = "visible";
+         notif.textContent = count;
+         notif.style.opacity = "1";
+         cartArr.push(count);
+      }
+
+      count = 0;
+      updateLabel();
+   });
 
 // FUNCTIONS
 function updateLabel() {

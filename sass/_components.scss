@@ -21,12 +21,13 @@
 
    &__underline {
       border-bottom: 4px solid transparent;
+      transform: translateY(4.2rem);
+      transition: all 0.2s;
+      width: 110%;
    }
 
    &__item {
       &:hover > .nav__underline {
-         width: 110%;
-         transform: translateY(4.2rem);
          border-bottom: 4px solid $color-primary;
       }
    }
@@ -36,6 +37,7 @@
       color: $color-dark-gray-blue;
       text-decoration: none;
       font-size: 1.4rem;
+      transition: all 0.2s;
 
       &:hover {
          color: $color-dark-blue;
@@ -63,6 +65,10 @@
          background-color: $color-primary;
          padding: 0.2rem 0.75rem;
          border-radius: 45%;
+         visibility: hidden;
+         opacity: 0;
+         transition: all 0.2s;
+         z-index: 10;
       }
 
       &-avatar {
@@ -71,6 +77,7 @@
          display: block;
          border-radius: 50%;
          border: 2px solid transparent;
+         transition: all 0.2s;
 
          &:hover {
             border-color: $color-primary;
@@ -104,14 +111,21 @@
          grid-column: 1 / -1;
 
          border: 2px solid transparent;
+         cursor: pointer;
+         transition: all 0.2s;
+
+         &:active {
+            filter: opacity(0.5);
+         }
       }
 
       &--thumb {
          border-radius: 1.2rem;
          border: 2px solid transparent;
          cursor: pointer;
+         transition: all 0.2s;
 
-         &:hover:not(.active) {
+         &:active:not(.active) {
             filter: opacity(0.5);
          }
       }
@@ -328,6 +342,14 @@
    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
    z-index: 10;
    overflow: hidden;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.2s;
+
+   &__content {
+      height: 100%;
+      position: relative;
+   }
 
    &__heading {
       width: 120%;
@@ -377,6 +399,7 @@
 
    &__checkout {
       font-size: 1.2rem;
+      font-weight: 700;
       margin-top: 1.5rem;
       padding: 1.3rem 0;
       width: 100%;
@@ -384,5 +407,18 @@
       border-radius: 0.5rem;
       color: $color-white;
       background-color: $color-primary;
+   }
+
+   &__empty {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 20%);
+      color: $color-gray-blue;
+      font-weight: 700;
+   }
+
+   &__active {
+      visibility: hidden;
    }
 }
