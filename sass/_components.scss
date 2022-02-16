@@ -10,18 +10,36 @@
    border-bottom: 1px solid rgba($color-gray-blue, 0.2);
 
    &__list {
+      height: 100%;
       list-style: none;
 
       display: grid;
       grid-template-columns: repeat(5, min-content);
-      grid-column-gap: 2rem;
+      grid-column-gap: 3rem;
+      align-content: center;
+   }
+
+   &__underline {
+      border-bottom: 3px solid transparent;
+   }
+
+   &__item {
+      &:hover > .nav__underline {
+         width: 110%;
+         transform: translateY(4rem);
+         border-bottom: 3px solid $color-primary;
+      }
    }
 
    &__link,
    &__visited {
-      color: $color-gray-blue;
+      color: $color-dark-gray-blue;
       text-decoration: none;
       font-size: 1.4rem;
+
+      &:hover {
+         color: $color-dark-blue;
+      }
    }
 
    &__btn {
@@ -39,6 +57,12 @@
          height: 4.4rem;
          width: 4.4rem;
          display: block;
+         border-radius: 50%;
+         border: 2px solid transparent;
+
+         &:hover {
+            border-color: $color-primary;
+         }
       }
    }
 }
@@ -62,11 +86,18 @@
       &--large {
          grid-row: 1 / 5;
          grid-column: 1 / -1;
+
+         border: 2px solid transparent;
       }
 
       &--thumb {
          border-radius: 1.2rem;
          border: 2px solid transparent;
+         cursor: pointer;
+
+         &:hover:not(.active) {
+            filter: opacity(0.5);
+         }
       }
 
       &--thumb-1 {
@@ -156,9 +187,10 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         box-shadow: 0 2rem 4rem rgba($color-primary, 0.3);
+         box-shadow: 0 1rem 2rem rgba($color-primary, 0.3);
          flex: 1;
          cursor: pointer;
+         transition: all 0.2s;
 
          &--img {
             fill: $color-white;
@@ -169,6 +201,12 @@
          &--text {
             font-size: 1.4rem;
             font-weight: 700;
+         }
+
+         &:active {
+            filter: opacity(0.75);
+            transform: translateY(2px);
+            box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
          }
       }
    }
@@ -194,15 +232,17 @@
       border: none;
       background-color: transparent;
       cursor: pointer;
+      transition: all 0.2s;
 
-      &-minus {
-         &--icon {
-         }
-      }
+      // &:hover {
+      //    transform: translateY(-2px);
+      //    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+      // }
 
-      &-add {
-         &--icon {
-         }
+      &:active {
+         filter: opacity(0.5);
+         // transform: translateY(0);
+         // box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
       }
    }
 }

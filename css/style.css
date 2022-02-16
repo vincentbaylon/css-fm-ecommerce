@@ -22,14 +22,24 @@ body {
   align-items: center;
   border-bottom: 1px solid rgba(182, 188, 200, 0.2); }
   .nav__list {
+    height: 100%;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(5, min-content);
-    grid-column-gap: 2rem; }
+    grid-column-gap: 3rem;
+    align-content: center; }
+  .nav__underline {
+    border-bottom: 3px solid transparent; }
+  .nav__item:hover > .nav__underline {
+    width: 110%;
+    transform: translateY(4rem);
+    border-bottom: 3px solid #ff7d1a; }
   .nav__link, .nav__visited {
-    color: #b6bcc8;
+    color: #68707d;
     text-decoration: none;
     font-size: 1.4rem; }
+    .nav__link:hover, .nav__visited:hover {
+      color: #1d2025; }
   .nav__btn {
     border: none;
     border-radius: 0;
@@ -41,7 +51,11 @@ body {
     .nav__btn-avatar {
       height: 4.4rem;
       width: 4.4rem;
-      display: block; }
+      display: block;
+      border-radius: 50%;
+      border: 2px solid transparent; }
+      .nav__btn-avatar:hover {
+        border-color: #ff7d1a; }
 
 .main {
   padding: 4rem 2rem;
@@ -57,10 +71,14 @@ body {
     grid-gap: 3rem; }
     .main__pictures--large {
       grid-row: 1 / 5;
-      grid-column: 1 / -1; }
+      grid-column: 1 / -1;
+      border: 2px solid transparent; }
     .main__pictures--thumb {
       border-radius: 1.2rem;
-      border: 2px solid transparent; }
+      border: 2px solid transparent;
+      cursor: pointer; }
+      .main__pictures--thumb:hover:not(.active) {
+        filter: opacity(0.5); }
     .main__pictures--thumb-1 {
       grid-row: 5 / 6;
       grid-column: 1 / 2; }
@@ -123,9 +141,10 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2rem 4rem rgba(255, 125, 26, 0.3);
+      box-shadow: 0 1rem 2rem rgba(255, 125, 26, 0.3);
       flex: 1;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: all 0.2s; }
       .main__text--cart-button--img {
         fill: white;
         height: 1.5rem;
@@ -133,6 +152,10 @@ body {
       .main__text--cart-button--text {
         font-size: 1.4rem;
         font-weight: 700; }
+      .main__text--cart-button:active {
+        filter: opacity(0.75);
+        transform: translateY(2px);
+        box-shadow: 0 1rem 2rem rgba(255, 125, 26, 0.2); }
 
 .counter {
   padding: 1.6rem 1.2rem;
@@ -150,7 +173,10 @@ body {
     align-items: center;
     border: none;
     background-color: transparent;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all 0.2s; }
+    .counter__btn:active {
+      filter: opacity(0.5); }
 
 .filter-white {
   filter: invert(100%) sepia(3%) saturate(632%) hue-rotate(215deg) brightness(112%) contrast(102%); }
