@@ -299,6 +299,10 @@
    position: relative;
 }
 
+.cart-price-wrapper {
+   display: flex;
+}
+
 .active {
    border-color: $color-primary;
 }
@@ -355,7 +359,7 @@
       width: 120%;
       font-size: 1.2rem;
       padding: 1.2rem 2rem;
-      border-bottom: 1px solid $color-gray-blue-light;
+      border-bottom: 2px solid $color-gray-blue-light;
       transform: translateX(-2rem);
    }
 
@@ -378,22 +382,27 @@
    }
 
    &__desc {
+      margin-bottom: 0.3rem;
    }
 
    &__price {
+      letter-spacing: 0.05rem;
    }
 
    &__total {
       font-weight: 700;
       color: $color-dark-blue;
       margin-left: 0.5rem;
+      letter-spacing: 0.05rem;
    }
 
    &__trash {
       border: none;
+      cursor: pointer;
+      background-color: transparent;
 
       &-icon {
-         height: 1.15rem;
+         height: 1.3rem;
       }
    }
 
@@ -407,6 +416,7 @@
       border-radius: 0.5rem;
       color: $color-white;
       background-color: $color-primary;
+      cursor: pointer;
    }
 
    &__empty {

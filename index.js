@@ -1,5 +1,9 @@
 let count = 0;
 let cartArr = [];
+let product = {
+   name: "Fall Limited Edition Sneakers",
+   price: 125,
+};
 
 // EVENT LISTENERS
 document.querySelector(".counter__btn-add").addEventListener("click", () => {
@@ -20,18 +24,27 @@ document.querySelector(".nav__btn").addEventListener("click", () => {
    const cart = document.querySelector(".cart");
    const cartDetails = document.querySelector(".cart__active");
    const cartEmpty = document.querySelector(".cart__empty");
+   const cartDesc = document.querySelector(".cart__desc");
+   const cartPrice = document.querySelector(".cart__price");
+   const cartTotal = document.querySelector(".cart__total");
 
    if (cart.style.visibility === "visible") {
       cart.style.visibility = "hidden";
       cart.style.opacity = "0";
       cartDetails.style.visibility = "hidden";
    } else {
-      cartEmpty.style.visibility = "hidden";
       cart.style.visibility = "visible";
       cart.style.opacity = "1";
 
       if (cartArr.length > 0) {
+         cartEmpty.style.visibility = "hidden";
          cartDetails.style.visibility = "visible";
+
+         cartArr.forEach((each) => {
+            cartDesc.textContent = each.name;
+            cartPrice.textContent = `$${each.price}.00 x ${each.quantity}`;
+            cartTotal.textContent = `$${each.price * each.quantity}.00`;
+         });
       }
    }
 });
@@ -44,12 +57,34 @@ document
          notif.style.visibility = "visible";
          notif.textContent = count;
          notif.style.opacity = "1";
-         cartArr.push(count);
+
+         let order = {
+            name: product.name,
+            price: product.price,
+            quantity: count,
+         };
+         cartArr.push(order);
       }
 
       count = 0;
       updateLabel();
    });
+
+document.querySelector(".cart__trash").addEventListener("click", () => {
+   const cart = document.querySelector(".cart");
+   const cartDetails = document.querySelector(".cart__active");
+   const cartEmpty = document.querySelector(".cart__empty");
+   const notif = document.querySelector(".nav__btn-notif");
+
+   notif.style.visibility = "hidden";
+   notif.textContent = 0;
+   notif.style.opacity = "0";
+   cart.style.visibility = "visible";
+   cartDetails.style.visibility = "hidden";
+   cartEmpty.style.visibility = "visible";
+
+   cartArr.pop();
+});
 
 // FUNCTIONS
 function updateLabel() {
