@@ -7,6 +7,12 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Kumbh Sans", sans-serif;
@@ -29,11 +35,11 @@ body {
     grid-column-gap: 3rem;
     align-content: center; }
   .nav__underline {
-    border-bottom: 3px solid transparent; }
+    border-bottom: 4px solid transparent; }
   .nav__item:hover > .nav__underline {
     width: 110%;
-    transform: translateY(4rem);
-    border-bottom: 3px solid #ff7d1a; }
+    transform: translateY(4.2rem);
+    border-bottom: 4px solid #ff7d1a; }
   .nav__link, .nav__visited {
     color: #68707d;
     text-decoration: none;
@@ -46,11 +52,11 @@ body {
     background-color: transparent;
     cursor: pointer; }
     .nav__btn-cart {
-      height: 1.8rem;
+      height: 1.9rem;
       display: block; }
     .nav__btn-avatar {
-      height: 4.4rem;
-      width: 4.4rem;
+      height: 4.6rem;
+      width: 4.6rem;
       display: block;
       border-radius: 50%;
       border: 2px solid transparent; }
@@ -63,6 +69,9 @@ body {
   grid-template-columns: repeat(2, minmax(min-content, 720px));
   grid-column-gap: 6rem;
   align-items: center; }
+  @media only screen and (max-width: 56.25em) {
+    .main {
+      grid-template-columns: 1fr; } }
   .main__pictures {
     padding: 4rem;
     display: grid;
@@ -121,9 +130,9 @@ body {
     .main__text--price-slash {
       color: #b6bcc8;
       font-size: 1.6rem;
-      text-decoration: line-through;
       transform: translateY(-20px);
-      font-weight: 400; }
+      font-weight: 400;
+      text-decoration: line-through; }
     .main__text--price-disc {
       color: #ff7d1a;
       background-color: #ffede0;

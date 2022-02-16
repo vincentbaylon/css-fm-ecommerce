@@ -20,14 +20,14 @@
    }
 
    &__underline {
-      border-bottom: 3px solid transparent;
+      border-bottom: 4px solid transparent;
    }
 
    &__item {
       &:hover > .nav__underline {
          width: 110%;
-         transform: translateY(4rem);
-         border-bottom: 3px solid $color-primary;
+         transform: translateY(4.2rem);
+         border-bottom: 4px solid $color-primary;
       }
    }
 
@@ -49,13 +49,13 @@
       cursor: pointer;
 
       &-cart {
-         height: 1.8rem;
+         height: 1.9rem;
          display: block;
       }
 
       &-avatar {
-         height: 4.4rem;
-         width: 4.4rem;
+         height: 4.6rem;
+         width: 4.6rem;
          display: block;
          border-radius: 50%;
          border: 2px solid transparent;
@@ -75,6 +75,10 @@
    grid-template-columns: repeat(2, minmax(min-content, 720px));
    grid-column-gap: 6rem;
    align-items: center;
+
+   @media only screen and (max-width: 56.25em) {
+      grid-template-columns: 1fr;
+   }
 
    &__pictures {
       padding: 4rem;
@@ -162,9 +166,9 @@
       &--price-slash {
          color: $color-gray-blue;
          font-size: 1.6rem;
-         text-decoration: line-through;
          transform: translateY(-20px);
          font-weight: 400;
+         text-decoration: line-through;
       }
 
       &--price-disc {
