@@ -1,13 +1,23 @@
 //////////////////////////////////
 // NAVIGATION BAR
 .nav {
-   max-width: 1440px;
    padding: 3rem 0;
    display: grid;
    grid-template-columns: min-content 1fr min-content min-content;
    grid-column-gap: 4rem;
    align-items: center;
    border-bottom: 1px solid rgba($color-gray-blue, 0.2);
+   z-index: 10;
+   background-color: $color-white;
+
+   @media only screen and (max-width: 43.75em) {
+      // 700px
+      grid-column-gap: 2rem;
+   }
+
+   @media only screen and (max-width: 23.4375em) {
+      padding: 2rem;
+   }
 
    &__list {
       height: 100%;
@@ -17,6 +27,11 @@
       grid-template-columns: repeat(5, min-content);
       grid-column-gap: 3rem;
       align-content: center;
+
+      @media only screen and (max-width: 43.75em) {
+         // 700px
+         display: none;
+      }
    }
 
    &__underline {
@@ -44,6 +59,15 @@
       }
    }
 
+   &__menu {
+      display: none;
+
+      @media only screen and (max-width: 43.75em) {
+         // 700px
+         display: block;
+      }
+   }
+
    &__btn {
       position: relative;
       border: none;
@@ -55,6 +79,15 @@
       &-cart {
          height: 1.9rem;
          display: block;
+         filter: invert(47%) sepia(8%) saturate(629%) hue-rotate(180deg)
+            brightness(89%) contrast(87%);
+
+         @media only screen and (max-width: 43.75em) {
+            // 700px
+            height: 2.5rem;
+            filter: invert(0%) sepia(6%) saturate(7500%) hue-rotate(328deg)
+               brightness(103%) contrast(106%);
+         }
       }
 
       &-notif {
@@ -95,17 +128,48 @@
    grid-template-columns: repeat(2, minmax(min-content, 720px));
    grid-column-gap: 6rem;
    align-items: center;
+   justify-items: center;
 
    @media only screen and (max-width: 56.25em) {
       grid-template-columns: 1fr;
+      padding: 3rem 1.5rem;
+   }
+
+   @media only screen and (max-width: 43.75em) {
+      padding: 2rem 1rem;
+   }
+
+   @media only screen and (max-width: 23.4375em) {
+      padding: 0;
+      transform: translateY(-4.5rem);
    }
 
    &__pictures {
+      width: 90%;
       padding: 4rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(5, 1fr);
       grid-gap: 3rem;
+
+      @media only screen and (max-width: 78.125em) {
+         padding: 1rem;
+      }
+
+      @media only screen and (max-width: 62.5em) {
+         padding: 0.5rem;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+         padding: 0rem;
+      }
+
+      @media only screen and (max-width: 23.4375em) {
+         width: 100%;
+         padding: 0;
+         grid-gap: 0;
+         grid-template-rows: repeat(4, 1fr);
+      }
 
       &--large {
          grid-row: 1 / 5;
@@ -118,6 +182,11 @@
          &:hover {
             filter: opacity(0.5);
          }
+
+         @media only screen and (max-width: 23.4375em) {
+            border: 0;
+            cursor: default;
+         }
       }
 
       &--thumb {
@@ -128,6 +197,11 @@
 
          &:hover:not(.active) {
             filter: opacity(0.5);
+         }
+
+         @media only screen and (max-width: 23.4375em) {
+            border: 0;
+            display: none;
          }
       }
 
@@ -158,16 +232,45 @@
       height: 100%;
       object-fit: cover;
       display: block;
+
+      @media only screen and (max-width: 23.4375em) {
+         border-radius: 0;
+      }
    }
 
    &__text {
-      width: 85%;
+      background-color: $color-white;
+      width: 90%;
       padding: 4rem;
       display: grid;
       grid-gap: 3rem;
+      z-index: 5;
+
+      @media only screen and (max-width: 78.125em) {
+         padding: 1rem;
+      }
+
+      @media only screen and (max-width: 62.5em) {
+         padding: 0.5rem;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+         padding: 3rem 0.5rem;
+      }
+
+      @media only screen and (max-width: 23.4375em) {
+         transform: translateY(-4rem);
+         width: 100%;
+         padding: 3rem 2.5rem;
+         grid-gap: 1.7rem;
+      }
 
       &--heading-2 {
          font-size: 4.5rem;
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 3.5rem;
+         }
       }
 
       &--heading-3 {
@@ -182,20 +285,34 @@
          color: $color-dark-gray-blue;
          font-size: 1.6rem;
          line-height: 1.5;
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 1.9rem;
+         }
       }
 
       &--price {
          font-size: 2.6rem;
          display: flex;
          align-items: center;
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 3rem;
+            letter-spacing: 0.05rem;
+         }
       }
 
       &--price-slash {
          color: $color-gray-blue;
          font-size: 1.6rem;
-         transform: translateY(-20px);
          font-weight: 400;
          text-decoration: line-through;
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.05rem;
+         }
       }
 
       &--price-disc {
@@ -206,6 +323,10 @@
          font-size: 1.5rem;
          margin-left: 1.5rem;
          filter: opacity(0.8);
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 1.9rem;
+         }
       }
 
       &--cart-button {
@@ -232,6 +353,10 @@
          &--text {
             font-size: 1.4rem;
             font-weight: 700;
+
+            @media only screen and (max-width: 23.4375em) {
+               font-size: 2rem;
+            }
          }
 
          &:hover {
@@ -240,6 +365,11 @@
          &:active {
             transform: translateY(2px);
             box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
+         }
+
+         @media only screen and (max-width: 23.4375em) {
+            margin-top: 2rem;
+            padding: 2.5rem 2rem;
          }
       }
    }
@@ -255,8 +385,17 @@
    background-color: $color-gray-blue-light;
    margin-right: 1.5rem;
 
+   @media only screen and (max-width: 23.4375em) {
+      width: 100%;
+      padding: 2.5rem 1.5em;
+   }
+
    &__label {
       font-size: 1.5rem;
+
+      @media only screen and (max-width: 23.4375em) {
+         font-size: 2rem;
+      }
    }
 
    &__btn {
@@ -279,6 +418,11 @@
    margin-top: 5rem;
    color: $color-dark-gray-blue;
    font-size: 1.5rem;
+
+   @media only screen and (max-width: 23.4375em) {
+      margin-top: 1rem;
+      padding: 1rem;
+   }
 
    a {
       position: relative;
@@ -336,6 +480,16 @@
    visibility: hidden;
    opacity: 0;
    transition: all 0.2s;
+
+   @media only screen and (max-width: 43.75em) {
+      right: -5rem;
+   }
+
+   @media only screen and (max-width: 23.4375em) {
+      top: 7rem;
+      right: -7.75rem;
+      width: 45rem;
+   }
 
    &__content {
       height: 100%;
@@ -570,6 +724,10 @@
    transform: translateY(-2rem);
    display: flex;
    justify-content: space-between;
+
+   @media only screen and (max-width: 23.4375em) {
+      flex-direction: column;
+   }
 }
 
 .cart-wrapper {
@@ -578,6 +736,18 @@
 
 .cart-price-wrapper {
    display: flex;
+}
+
+.main-price-wrapper {
+   display: grid;
+   grid-template-rows: repeat(2, 1fr);
+
+   @media only screen and (max-width: 23.4375em) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+   }
 }
 
 .active,

@@ -173,8 +173,6 @@ document
       }
    });
 
-document.qu;
-
 // FUNCTIONS
 function updateLabel() {
    const label = document.querySelector(".counter__label");
