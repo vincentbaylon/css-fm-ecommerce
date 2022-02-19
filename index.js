@@ -144,7 +144,7 @@ document.querySelector(".litebox__icon--next").addEventListener("click", () => {
    const largeImg = document.querySelector(".litebox__img--large");
 
    if (active < 4) {
-      active += 1;
+      active = parseInt(active) + 1;
       largeImg.src = `images/image-product-${active}.jpg`;
 
       liteboxRemoveActive();
@@ -158,8 +158,8 @@ document
       const largeImg = document.querySelector(".litebox__img--large");
 
       if (active > 1) {
-         active -= 1;
-         largeImg.src = `images/image-product-${active}.jpg`;
+         active = parseInt(active) - 1;
+         largeImg.src = `images/image-product-${parseInt(active)}.jpg`;
 
          liteboxRemoveActive();
          liteboxAddActive(active);
