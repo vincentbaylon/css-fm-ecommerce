@@ -115,7 +115,7 @@
          cursor: pointer;
          transition: all 0.2s;
 
-         &:active {
+         &:hover {
             filter: opacity(0.5);
          }
       }
@@ -126,7 +126,7 @@
          cursor: pointer;
          transition: all 0.2s;
 
-         &:active:not(.active) {
+         &:hover:not(.active) {
             filter: opacity(0.5);
          }
       }
@@ -234,8 +234,10 @@
             font-weight: 700;
          }
 
-         &:active {
+         &:hover {
             filter: opacity(0.75);
+         }
+         &:active {
             transform: translateY(2px);
             box-shadow: 0 1rem 2rem rgba($color-primary, 0.2);
          }
@@ -265,62 +267,10 @@
       cursor: pointer;
       transition: all 0.2s;
 
-      // &:hover {
-      //    transform: translateY(-2px);
-      //    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-      // }
-
-      &:active {
+      &:hover {
          filter: opacity(0.5);
-         // transform: translateY(0);
-         // box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
       }
    }
-}
-
-//////////////////////////////////
-// UTILITIES
-.filter-white {
-   filter: invert(100%) sepia(3%) saturate(632%) hue-rotate(215deg)
-      brightness(112%) contrast(102%);
-}
-
-.filter-gray {
-   filter: invert(47%) sepia(8%) saturate(629%) hue-rotate(180deg)
-      brightness(89%) contrast(87%);
-}
-
-.counter-cart-wrapper {
-   transform: translateY(-2rem);
-   display: flex;
-   justify-content: space-between;
-}
-
-.cart-wrapper {
-   position: relative;
-}
-
-.cart-price-wrapper {
-   display: flex;
-}
-
-.active {
-   border-color: $color-primary;
-}
-
-.active-img {
-   filter: opacity(0.35);
-}
-
-.close-backdrop {
-   height: 100vh;
-   width: 100vw;
-   background-color: transparent;
-   z-index: 5;
-   position: absolute;
-   top: 0;
-   right: 0;
-   visibility: hidden;
 }
 
 //////////////////////////////////
@@ -331,16 +281,41 @@
    font-size: 1.5rem;
 
    a {
+      position: relative;
       text-decoration: none;
+
+      &:link,
+      &:visited {
+         color: $color-primary;
+         transition: all 0.2s;
+      }
+
+      &:hover {
+         // border-bottom: 1px solid rgba($color-primary, 1);
+      }
    }
 
-   a:link,
-   a:visited {
-      color: $color-primary;
+   a::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $color-primary;
+      transform-origin: center;
+      transform: scaleX(0);
+      transition: all 0.3s;
    }
 
-   a:hover {
-      border-bottom: 1px solid rgba($color-primary, 1);
+   a:hover::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      height: 1px;
+      transform: scaleX(1);
+      background-color: $color-primary;
    }
 }
 
@@ -443,4 +418,189 @@
    &__active {
       visibility: hidden;
    }
+}
+
+//////////////////////////////////
+// LITEBOX
+.litebox {
+   height: 100vh;
+   width: 100%;
+   position: fixed;
+   z-index: 1000;
+   top: 0;
+   left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s;
+   visibility: hidden;
+   opacity: 0;
+
+   &__backdrop {
+      height: 100%;
+      width: 100%;
+      background-color: $color-black;
+      z-index: 1100;
+      opacity: 0.75;
+      transition: all 0.3s;
+   }
+
+   &__content {
+      position: absolute;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   &__img--large {
+      height: 60vh;
+      border-radius: 1.5rem;
+   }
+
+   &__img-box {
+      margin-top: 4rem;
+      width: 65%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: center;
+      align-content: center;
+      grid-gap: 3rem;
+   }
+
+   &__img--thumb {
+      height: 100%;
+      width: 100%;
+   }
+
+   &__large-box {
+      position: relative;
+   }
+
+   &__icon {
+      position: absolute;
+      cursor: pointer;
+
+      &:hover {
+         filter: invert(51%) sepia(81%) saturate(1386%) hue-rotate(347deg)
+            brightness(102%) contrast(103%);
+      }
+
+      &--close {
+         height: 2.1rem;
+         top: -4rem;
+         right: 0;
+      }
+
+      &--next {
+         right: 2.2rem;
+      }
+
+      &--previous {
+         left: 2.2rem;
+      }
+
+      &-holder {
+         position: absolute;
+         background-color: $color-white;
+         padding: 3rem;
+         border-radius: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+
+         &:hover > img {
+            filter: invert(51%) sepia(81%) saturate(1386%) hue-rotate(347deg)
+               brightness(102%) contrast(103%);
+         }
+
+         &--next {
+            top: 45%;
+            right: -2.8rem;
+         }
+
+         &--previous {
+            top: 45%;
+            left: -2.8rem;
+         }
+      }
+   }
+
+   &__thumb-holder {
+      border-radius: 1rem;
+      border: 2px solid transparent;
+      cursor: pointer;
+      overflow: hidden;
+
+      &:hover:not(.litebox-active) {
+         background-color: $color-white;
+         border: 0;
+         transform: scale(0.965);
+      }
+   }
+
+   &__img--thumb {
+      transition: all 0.3s;
+
+      &:hover:not(.litebox-active-img) {
+         filter: opacity(0.5);
+      }
+   }
+}
+
+//////////////////////////////////
+// UTILITIES
+.filter-white {
+   filter: invert(100%) sepia(3%) saturate(632%) hue-rotate(215deg)
+      brightness(112%) contrast(102%);
+}
+
+.filter-gray {
+   filter: invert(47%) sepia(8%) saturate(629%) hue-rotate(180deg)
+      brightness(89%) contrast(87%);
+}
+
+.filter-primary {
+   filter: invert(51%) sepia(81%) saturate(1386%) hue-rotate(347deg)
+      brightness(102%) contrast(103%);
+}
+
+.counter-cart-wrapper {
+   transform: translateY(-2rem);
+   display: flex;
+   justify-content: space-between;
+}
+
+.cart-wrapper {
+   position: relative;
+}
+
+.cart-price-wrapper {
+   display: flex;
+}
+
+.active,
+.litebox-active {
+   border-color: $color-primary;
+}
+
+.active-img,
+.litebox-active-img {
+   filter: opacity(0.35);
+}
+
+.litebox-active-figure {
+   background-color: $color-white;
+}
+
+.close-backdrop {
+   height: 100vh;
+   width: 100vw;
+   background-color: transparent;
+   z-index: 5;
+   position: absolute;
+   top: 0;
+   right: 0;
+   visibility: hidden;
 }
