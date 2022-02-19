@@ -140,6 +140,13 @@ document
       litebox.style.opacity = "0";
    });
 
+document.querySelector(".litebox__backdrop").addEventListener("click", () => {
+   const litebox = document.querySelector(".litebox");
+
+   litebox.style.visibility = "hidden";
+   litebox.style.opacity = "0";
+});
+
 document.querySelector(".litebox__icon--next").addEventListener("click", () => {
    const largeImg = document.querySelector(".litebox__img--large");
 
@@ -165,6 +172,8 @@ document
          liteboxAddActive(active);
       }
    });
+
+document.qu;
 
 // FUNCTIONS
 function updateLabel() {
