@@ -193,6 +193,27 @@ document
       }
    });
 
+document.querySelector(".nav__menu").addEventListener("click", () => {
+   const menu = document.querySelector(".menu");
+
+   menu.style.visibility = "visible";
+   menu.style.opacity = "1";
+});
+
+document.querySelector(".menu__close").addEventListener("click", () => {
+   const menu = document.querySelector(".menu");
+
+   menu.style.visibility = "hidden";
+   menu.style.opacity = "0";
+});
+
+document.querySelector(".menu__backdrop").addEventListener("click", () => {
+   const menu = document.querySelector(".menu");
+
+   menu.style.visibility = "hidden";
+   menu.style.opacity = "0";
+});
+
 // FUNCTIONS
 function updateLabel() {
    const label = document.querySelector(".counter__label");
