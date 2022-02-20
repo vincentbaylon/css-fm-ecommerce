@@ -159,6 +159,15 @@ document.querySelector(".litebox__icon--next").addEventListener("click", () => {
    }
 });
 
+document.querySelector(".main__icon--next").addEventListener("click", () => {
+   const largeImg = document.querySelector(".main__img--large");
+
+   if (active < 4) {
+      active = parseInt(active) + 1;
+      largeImg.src = `images/image-product-${active}.jpg`;
+   }
+});
+
 document
    .querySelector(".litebox__icon--previous")
    .addEventListener("click", () => {
@@ -170,6 +179,17 @@ document
 
          liteboxRemoveActive();
          liteboxAddActive(active);
+      }
+   });
+
+document
+   .querySelector(".main__icon--previous")
+   .addEventListener("click", () => {
+      const largeImg = document.querySelector(".main__img--large");
+
+      if (active > 1) {
+         active = parseInt(active) - 1;
+         largeImg.src = `images/image-product-${parseInt(active)}.jpg`;
       }
    });
 

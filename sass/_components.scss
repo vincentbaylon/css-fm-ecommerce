@@ -103,6 +103,12 @@
          opacity: 0;
          transition: all 0.2s;
          z-index: 10;
+
+         @media only screen and (max-width: 23.4375em) {
+            font-size: 1.2rem;
+            padding: 0.15rem 0.8rem;
+            top: -0.8rem;
+         }
       }
 
       &-avatar {
@@ -174,6 +180,7 @@
       &--large {
          grid-row: 1 / 5;
          grid-column: 1 / -1;
+         position: relative;
 
          border: 2px solid transparent;
          cursor: pointer;
@@ -186,6 +193,10 @@
          @media only screen and (max-width: 23.4375em) {
             border: 0;
             cursor: default;
+
+            &:hover {
+               filter: opacity(1);
+            }
          }
       }
 
@@ -223,6 +234,51 @@
       &--thumb-4 {
          grid-row: 5 / 6;
          grid-column: 4 / 5;
+      }
+   }
+
+   &__icon {
+      height: 1.75rem;
+      position: absolute;
+      cursor: pointer;
+
+      &:hover {
+         filter: invert(51%) sepia(81%) saturate(1386%) hue-rotate(347deg)
+            brightness(102%) contrast(103%);
+      }
+
+      &--next {
+         right: 1.7rem;
+      }
+
+      &--previous {
+         left: 1.7rem;
+      }
+
+      &-holder {
+         position: absolute;
+         background-color: $color-white;
+         padding: 2.5rem;
+         border-radius: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+
+         &:hover > img {
+            filter: invert(51%) sepia(81%) saturate(1386%) hue-rotate(347deg)
+               brightness(102%) contrast(103%);
+         }
+
+         &--next {
+            top: 45%;
+            right: 1.5rem;
+         }
+
+         &--previous {
+            top: 45%;
+            left: 1.5rem;
+         }
       }
    }
 
@@ -288,6 +344,8 @@
 
          @media only screen and (max-width: 23.4375em) {
             font-size: 1.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
          }
       }
 
@@ -489,6 +547,9 @@
       top: 7rem;
       right: -7.75rem;
       width: 45rem;
+      height: 32rem;
+      border-radius: 1rem;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
    }
 
    &__content {
@@ -502,28 +563,59 @@
       padding: 1.2rem 2rem;
       border-bottom: 2px solid $color-gray-blue-light;
       transform: translateX(-2rem);
+
+      @media only screen and (max-width: 23.4375em) {
+         font-size: 2rem;
+         padding: 2.5rem 2rem;
+      }
    }
 
    &__img {
       height: 3.5rem;
       width: 3.5rem;
       border-radius: 0.5rem;
+
+      @media only screen and (max-width: 23.4375em) {
+         height: 6rem;
+         width: 6rem;
+      }
    }
 
    &__details {
+      height: 100%;
       margin-top: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @media only screen and (max-width: 23.4375em) {
+         margin-top: 3rem;
+         flex: 1;
+         justify-content: flex-start;
+         margin-bottom: 2rem;
+      }
    }
 
    &__text {
       font-size: 1.3rem;
       color: $color-dark-gray-blue;
+
+      @media only screen and (max-width: 23.4375em) {
+         font-size: 2rem;
+         width: 100%;
+         margin-left: 2rem;
+      }
    }
 
    &__desc {
       margin-bottom: 0.3rem;
+      display: flex;
+
+      @media only screen and (max-width: 23.4375em) {
+         text-overflow: ellipsis;
+         flex-wrap: nowrap;
+         margin-bottom: 0.6rem;
+      }
    }
 
    &__price {
@@ -544,6 +636,10 @@
 
       &-icon {
          height: 1.3rem;
+
+         @media only screen and (max-width: 23.4375em) {
+            height: 2rem;
+         }
       }
    }
 
@@ -558,6 +654,12 @@
       color: $color-white;
       background-color: $color-primary;
       cursor: pointer;
+
+      @media only screen and (max-width: 23.4375em) {
+         border-radius: 1rem;
+         font-size: 2rem;
+         padding: 2.5rem 2rem;
+      }
    }
 
    &__empty {
@@ -567,6 +669,11 @@
       transform: translate(-50%, 20%);
       color: $color-gray-blue;
       font-weight: 700;
+
+      @media only screen and (max-width: 23.4375em) {
+         font-size: 2rem;
+         color: $color-dark-gray-blue;
+      }
    }
 
    &__active {
@@ -589,6 +696,10 @@
    transition: all 0.3s;
    visibility: hidden;
    opacity: 0;
+
+   @media only screen and (max-width: 23.4375em) {
+      display: none;
+   }
 
    &__backdrop {
       height: 100%;
