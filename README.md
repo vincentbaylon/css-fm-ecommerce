@@ -63,7 +63,7 @@ I've fallen in love with CSS/SASS/BEM during this project and will continue to p
 
 ## Author
 
--  Website - [Profile](https://vincentbaylon.com/)
+-  Website - [Portfolio](https://vincentbaylon.com/)
 -  Frontend Mentor - [@vincentbaylon](https://www.frontendmentor.io/profile/vincentbaylon)
 -  LinkedIn - [@vincentbaylon](https://www.linkedin.com/in/vincentbaylon/)
 -  Twitter - [@vincentbaylon\_](https://www.twitter.com/vincentbaylon_)
